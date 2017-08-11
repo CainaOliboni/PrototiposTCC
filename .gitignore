@@ -1,0 +1,13 @@
+
+.metadada/
+.git/
+RemoteSystemsTempFiles/
+.settings/
+.metadata/
+build/
+target/
+
+*.jar
+*.project
+*.classpath
+*.class
