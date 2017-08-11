@@ -29,7 +29,6 @@ public class WebsocketEndpoint implements Serializable{
 		
 		System.out.println("MENSAGEM DO CLIENT -> " + message);
 		
-
 		return "FALA COMIGO QUE EU SOU SEU AMIGO NO";
 		
 	}
