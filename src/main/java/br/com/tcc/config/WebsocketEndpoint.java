@@ -13,7 +13,7 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 @Named
-@ServerEndpoint("/websocket")
+@ServerEndpoint("/websocket") 
 public class WebsocketEndpoint implements Serializable{
 
 	private static final Set<Session> sessions = Collections.synchronizedSet(new HashSet<Session>());
