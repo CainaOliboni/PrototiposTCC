@@ -3,21 +3,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="/PrototiposTCC/paginaInicialTeste/paginaInicialTeste.js"></script>
 </head>
 <body>
 	
 	<h1>ALO ALO</h1>
 	
-	<button id="btnConectar">CONECTAR</button>
+	<button id="btnConectar" onclick="abrirConexao()">CONECTAR</button>
 	
-	<button id="btnDesconectar">DESCONECTAR</button>
+	<button id="btnDesconectar" onclick="onClose()">DESCONECTAR</button>
 	
 	<input id="msgWebSocket"/>
 	
-	<button id="btnMandarMsg">MANDAR MENSAGEM</button>
+	<button id="btnMandarMsg" onclick="enviarMensagem()">MANDAR MENSAGEM</button>
 	
-
+	<div id="output"></div>
 
 </body>
 </html>
