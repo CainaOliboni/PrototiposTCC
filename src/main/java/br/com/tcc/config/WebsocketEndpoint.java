@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.inject.Named;
 import javax.websocket.OnClose;
@@ -21,13 +23,25 @@ public class WebsocketEndpoint implements Serializable{
 	@OnOpen 
 	public void onOpen(Session session) { 
 		
-		sessions.add(session); 
+		sessions.add(session);
+		
+		System.out.println("ID SESSÃO " + session.getId());
+		
+		System.out.println("ABRIU");
 	
 	}
 	@OnMessage 
 	public String onMessage(String message, Session client) {
 		
 		System.out.println("MENSAGEM DO CLIENT -> " + message);
+		
+//		Timer timer = new Timer();
+//		
+//		 timer.scheduleAtFixedRate(new TimerTask() {
+//	            public void run() {
+//	               
+//	            }
+//	        }, 5000, 1000);
 		
 		return "FALA COMIGO QUE EU SOU SEU AMIGO NO";
 		
@@ -37,6 +51,8 @@ public class WebsocketEndpoint implements Serializable{
 	public void onClose(Session session) {
 		
 		sessions.remove(session);
+		
+		System.out.println("FECHOU");
 	}
 	
 }

@@ -7,7 +7,7 @@ function abrirConexao() {
 		
 		output = document.getElementById("output");
 		
-		ws = new WebSocket("ws://echo.websocket.org");
+		ws = new WebSocket("ws://localhost:8080/PrototiposTCC/websocket");
 		ws.onopen = function(evt) { onOpen(evt) };
 		ws.onclose = function(evt) { onClose(evt) };
 		ws.onmessage = function(evt) { onMessage(evt) };
@@ -30,7 +30,7 @@ function onOpen(){
 
 function onMessage (evt) {
 	
-	writeToScreen("<span> MENSAGEM RETORNO: " + evt.data.value + "</span>");
+	writeToScreen("<span> MENSAGEM RETORNO: " + evt.data + "</span>");
 	
 	console.log(evt);
 
@@ -39,7 +39,7 @@ function onMessage (evt) {
 function enviarMensagem() {
 	
 	var msg = document.getElementById("msgWebSocket");
-	ws.send(msg);
+	ws.send(msg.value);
 	
 };
 
