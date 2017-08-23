@@ -3,8 +3,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="/PrototiposTCC/css/slideshow.css" rel="stylesheet" type="text/css" />
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="/PrototiposTCC/paginaInicialTeste/paginaInicialTeste.js"></script>
+<script type="text/javascript" src="/PrototiposTCC/paginaInicialTeste/slideshowWebsocket.js"></script>
 </head>
 <body>
 	
@@ -19,6 +20,20 @@
 	<button id="btnMandarMsg" onclick="enviarMensagem()">MANDAR MENSAGEM</button>
 	
 	<div id="output"></div>
+	
+	<figure>
+   		<span class="trs next"></span>
+   		<span class="trs prev"></span>
+
+   		<div id="slider">
+      		<a href="#" class="trs" id="imagemSlide1"><img src="../images/Desert.jpg" alt="Legenda da imagem 1" /></a>
+      		<a href="#" class="trs" id="imagemSlide2"><img src="../images/Koala.jpg" alt="Legenda da imagem 2" /></a>
+			
+   		</div>
+
+   		<figcaption></figcaption>
+   
+	</figure>
 
 </body>
 </html>
