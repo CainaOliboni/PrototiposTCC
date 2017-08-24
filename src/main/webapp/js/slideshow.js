@@ -72,4 +72,14 @@ function setaImagem(){
     document.querySelector(".prev").addEventListener("click",settings.anterior,false);
 }
 
+
+function funcaoHttp(param) {
+
+	param = document.getElementById('txtParam').value;
+	
+	document.location.href = "/PrototiposTCC/prototipoHttp?ProximoSlide=" + param;
+
+}
+
+
 window.addEventListener("load",setaImagem,false);
