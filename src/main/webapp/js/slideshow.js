@@ -72,12 +72,16 @@ function setaImagem(){
     document.querySelector(".prev").addEventListener("click",settings.anterior,false);
 }
 
-
-function funcaoHttp(param) {
-
-	param = document.getElementById('txtParam').value;
+function slidePosteriorHttp() {
 	
-	document.location.href = "/PrototiposTCC/prototipoHttp?ProximoSlide=" + param;
+	document.location.href = "/PrototiposTCC/prototipoHttp?SlidePosterior=" + 1;
+
+}
+
+
+function slideHttp() {
+	
+	document.location.href = "/PrototiposTCC/prototipoHttp";
 
 }
 

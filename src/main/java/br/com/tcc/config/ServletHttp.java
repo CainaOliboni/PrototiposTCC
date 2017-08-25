@@ -10,47 +10,99 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ServletHttp extends HttpServlet {
 	
-	@Override
-	public void init() throws ServletException {
-		
-		System.out.println("ABRIU");
-		
-	}
+	private Integer numeroSlide = 0;
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void init() throws ServletException {
+
+		System.out.println("ABRIU A CONEXÃO");
+
+	}
+
+	@Override
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		System.out.println("NOVA REQUISICÃO");
-		
-		String param = (String) req.getParameter("ProximoSlide");
-		
-	    PrintWriter pw = resp.getWriter();
-	    
-	    pw.println("<html>");
-	    pw.println("<head>");
-	    pw.println("<title>Primeira Servlet</title>");
-	    pw.println("</head>");
-	    pw.println("<body>");
-		
-		if(param != null){
-			
-			if(param.equals("1")){
+
+		String slidePosterior = (String) req.getParameter("SlidePosterior");
+
+		String slideAnterior = (String) req.getParameter("SlideAnterior");
+
+		PrintWriter pw = resp.getWriter();
+
+		pw.println("<html>");
+		pw.println("<head>");
+		pw.println("<title>Primeira Servlet</title>");
+		pw.println("<script>");
+
+		pw.println("function slidePosteriorHttp() { ");
+		pw.println("document.location.href = '/PrototiposTCC/prototipoHttp?SlidePosterior=' + 1;");
+		pw.println("}");
+
+		pw.println("function slideAnteriorHttp() { ");
+		pw.println("document.location.href = '/PrototiposTCC/prototipoHttp?SlideAnterior=' + 1;");
+		pw.println("}");
+
+		pw.println("</script>");
+		pw.println("</head>");
+		pw.println("<body>");
+
+		if ((slidePosterior != null && slideAnterior == null) || (slidePosterior == null && slideAnterior != null)) {
+
+			if (slidePosterior != null) {
 				
-			    pw.println("<img src='../images/Desert.jpg' alt='Legenda da imagem 1' />");
-			
-			} else if(param.equals("2")){
+				if(numeroSlide >= 2){
+					
+					numeroSlide += 1;
+					
+					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					
+					pw.println("<button id='slideAnteriorHttp' onClick='slideAnteriorHttp()'>Anterior</button>");
+					
+				} else {
+					
+					numeroSlide += 1;
+					
+					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					
+					pw.println("<button id='slideAnteriorHttp' onClick='slideAnteriorHttp()'>Anterior</button>");
+
+					pw.println("<button id='slidePosteriorHttp' onClick='slidePosteriorHttp()'>Próximo</button>");
+				}
+
+			} else if (slideAnterior != null) {
 				
-				pw.println("<img src='../images/Koala.jpg' alt='Legenda da imagem 2' />");
+				if(numeroSlide <= 1){
+					
+					numeroSlide -= 1;
+					
+					pw.println("<img src='images/slide1.jpg' alt='Legenda da imagem '" + numeroSlide +"/>");
+					
+					pw.println("<button id='slidePosteriorHttp' onClick='slidePosteriorHttp()'>Próximo</button>");
+					
+				} else {
+					
+					numeroSlide -= 1;
+					
+					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide +"/>");
+
+					pw.println("<button id='slideAnteriorHttp' onClick='slideAnteriorHttp()'>Anterior</button>");
+
+					pw.println("<button id='slidePosteriorHttp' onClick='slidePosteriorHttp()'>Próximo</button>");
+				}
+				
 			}
-			
-		} else{
-			
-			resp.setContentType("text/html");
-			resp.sendRedirect("paginas/slideshow.html");
+
+		} else {
+
+			pw.println("<img src='images/Koala.jpg' alt='Legenda da imagem '" + numeroSlide +"/>");
+
+			pw.println("<button id='slidePosteriorHttp' onClick='slidePosteriorHttp()'>Próximo</button>");
+
 		}
-		
-	    pw.println("</body>");
-	    pw.println("</html>");
+
+		pw.println("</body>");
+		pw.println("</html>");
 
 	}
 }
