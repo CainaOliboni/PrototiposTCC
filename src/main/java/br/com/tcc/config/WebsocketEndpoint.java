@@ -27,13 +27,13 @@ public class WebsocketEndpoint implements Serializable{
 		
 		System.out.println("ID SESSÃO " + session.getId());
 		
-		System.out.println("ABRIU A SESSÃO");
+		System.out.println("ABRIU A SESSÃO COM O SERVER SIDE");
 	
 	}
 	@OnMessage 
 	public String onMessage(String message, Session client) {
 		
-		System.out.println("MENSAGEM DO CLIENT -> " + message);
+		System.out.println("MENSAGEM DO CLIENT(SLIDE ATUAL) -> " + message);
 		
 		String[] mensagemSplit = message.split(",");
 		
@@ -71,7 +71,7 @@ public class WebsocketEndpoint implements Serializable{
 		
 		sessions.remove(session);
 		
-		System.out.println("FECHOU");
+		System.out.println("FECHOU CONEXÃO COM O CLIENT");
 	}
 	
 }

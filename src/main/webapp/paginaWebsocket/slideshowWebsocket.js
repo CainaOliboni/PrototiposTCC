@@ -1,12 +1,9 @@
 var ws;
-var output;
 var valorRetorno;
 
 function abrirConexao() {
 	
 	if (window.WebSocket) {
-		
-		output = document.getElementById("output");
 		
 		ws = new WebSocket("ws://localhost:8080/PrototiposTCC/websocket");
 		ws.onopen = function(evt) { onOpen(evt) };
@@ -14,20 +11,20 @@ function abrirConexao() {
 		ws.onmessage = function(evt) { onMessage(evt) };
 		ws.onerror = function(evt) { onError(evt) };
 	    
-	    console.log("WebSocket supported in your browser");
+	    console.log("WebSocket é suportado nesse browser");
 		
 	} else {
-		console.log("WebSocket not supported in your browser");
+		console.log("WebSocket não é suportado nesse browser");
 	}
 	
-	console.log("onopen");
+	console.log("ABRINDO CONEXÃO COM O SERVIDOR");
 	
 };
 
 
 function onOpen(){
 	
-	console.log("ABRIU")
+	console.log("HANDSHAKE FEITO COM SUCESSO")
 };
 
 function onMessage (evt) {
@@ -48,18 +45,11 @@ function onClose() {
 	
 	ws.close();
 	
-	console.log("onclose"); 
+	console.log("CONEXÃO FECHADA COM SUCESSO"); 
 	
 };
 
 function onError() { console.log("onerror"); };
-
-function writeToScreen(message){
-	
-  var pre = document.createElement("p");
-  pre.innerHTML = message;
-  output.appendChild(pre);
-};
 
 function setaImagem(){
 	
