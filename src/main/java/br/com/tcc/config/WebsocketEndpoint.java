@@ -4,17 +4,13 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import javax.inject.Named;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-@Named
 @ServerEndpoint("/websocket") 
 public class WebsocketEndpoint implements Serializable{ 
 
@@ -52,15 +48,6 @@ public class WebsocketEndpoint implements Serializable{
 			numeroSlideAbertura = numeroSlide - 1;
 		}
 		
-		
-		
-//		Timer timer = new Timer();
-//		
-//		 timer.scheduleAtFixedRate(new TimerTask() {
-//	            public void run() {
-//	               
-//	            }
-//	        }, 5000, 1000);
 		
 		return "imagemSlide" + numeroSlideAbertura;
 		

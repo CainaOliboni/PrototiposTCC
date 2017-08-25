@@ -35,12 +35,6 @@ function onMessage (evt) {
 
 };
 
-function enviarMensagem(idSlideCorrente) {
-	
-	ws.send(idSlideCorrente);
-	
-};
-
 function onClose() { 
 	
 	ws.close();
@@ -49,7 +43,11 @@ function onClose() {
 	
 };
 
-function onError() { console.log("onerror"); };
+function enviarMensagem(idSlideCorrente) {
+	
+	ws.send(idSlideCorrente);
+	
+};
 
 function setaImagem(){
 	
