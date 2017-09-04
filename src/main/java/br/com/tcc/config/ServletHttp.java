@@ -14,15 +14,15 @@ public class ServletHttp extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-
-		System.out.println("ABRIU A CONEXÃO");
+		
+//		System.out.println("ABRIU A CONEXÃO");
 
 	}
 
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		System.out.println("NOVA REQUISICÃO");
+//		System.out.println("NOVA REQUISICÃO");
 
 		String slidePosterior = (String) req.getParameter("SlidePosterior");
 
@@ -33,6 +33,10 @@ public class ServletHttp extends HttpServlet {
 		pw.println("<html>");
 		pw.println("<head>");
 		pw.println("<title>Primeira Servlet</title>");
+		
+		pw.println("<link href='/PrototiposTCC/css/slideshow.css' rel='stylesheet' type='text/css' />");
+
+		pw.println("<script type='text/javascript' src='/PrototiposTCC/js/slideshow.js'></script>");
 		pw.println("<script>");
 
 		pw.println("function slidePosteriorHttp() { ");
@@ -46,61 +50,91 @@ public class ServletHttp extends HttpServlet {
 		pw.println("</script>");
 		pw.println("</head>");
 		pw.println("<body>");
-
+		pw.println("<figure>");
+		
+		//Verifica se foi enviado os parametros, caso contrário, mostra a página inicial dos slides
 		if ((slidePosterior != null && slideAnterior == null) || (slidePosterior == null && slideAnterior != null)) {
 
+			//Verifica se foi enviado o parâmetro para o slide posterior
 			if (slidePosterior != null) {
 				
-				if(numeroSlide >= 2){
+				//Se for o primeiro slide a ser chamado após o slide de apresentação, deve apresentar o primeiro slide sem o botão 'anterior'
+				if(numeroSlide == 0){
 					
 					numeroSlide += 1;
 					
 					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
+//					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
-					pw.println("<button id='slideAnteriorHttp' onClick='slideAnteriorHttp()'>Anterior</button>");
-					
-				} else {
+				} 
+				
+				//Se o slide que fez a requisição for penúltimo slide, não deve aparecer o botão 'próximo' no momento que mostrar o último slide
+				else if(numeroSlide >= 2){
 					
 					numeroSlide += 1;
 					
 					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+//					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
+					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
-					pw.println("<button id='slideAnteriorHttp' onClick='slideAnteriorHttp()'>Anterior</button>");
+				} 
 
-					pw.println("<button id='slidePosteriorHttp' onClick='slidePosteriorHttp()'>Próximo</button>");
+				//Se o slide requisitado não for o ultimo slide da lista, carregar os botões normalmente
+				else {
+					
+					numeroSlide += 1;
+					
+					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
+					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 				}
 
-			} else if (slideAnterior != null) {
+			}
+			
+			//Verifica se foi enviado o parâmetro para o slide anterior
+			else if (slideAnterior != null) {
 				
-				if(numeroSlide <= 1){
+				//Se o slide que fez a requisição for segundo slide, não deve aparecer o botão 'anterior' no momento que mostrar o primeiro slide
+				if(numeroSlide <= 2){
 					
 					numeroSlide -= 1;
 					
-					pw.println("<img src='images/slide1.jpg' alt='Legenda da imagem '" + numeroSlide +"/>");
+					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
+//					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
-					pw.println("<button id='slidePosteriorHttp' onClick='slidePosteriorHttp()'>Próximo</button>");
-					
-				} else {
+				} 
+				
+				//Se o slide requisitado não for o primeiro slide da lista, carregar os botões normalmente
+				else {
 					
 					numeroSlide -= 1;
 					
 					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide +"/>");
-
-					pw.println("<button id='slideAnteriorHttp' onClick='slideAnteriorHttp()'>Anterior</button>");
-
-					pw.println("<button id='slidePosteriorHttp' onClick='slidePosteriorHttp()'>Próximo</button>");
+					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
+					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 				}
 				
 			}
 
 		} else {
 
+			numeroSlide = 0;
+			
 			pw.println("<img src='images/Koala.jpg' alt='Legenda da imagem '" + numeroSlide +"/>");
-
-			pw.println("<button id='slidePosteriorHttp' onClick='slidePosteriorHttp()'>Próximo</button>");
+			pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
+//			pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 
 		}
-
+		
+		pw.println("<div id='slider'>");
+		
+		pw.println("</div>");
+		
+		pw.println("<figcaption></figcaption>");
+		
+		pw.println("</figure>");
 		pw.println("</body>");
 		pw.println("</html>");
 
