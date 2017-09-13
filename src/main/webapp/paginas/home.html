@@ -5,29 +5,47 @@
 <title>PROTOTIPOS TCC</title>
 
 <link href="/PrototiposTCC/css/slideshow.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
 <script type="text/javascript" src="/PrototiposTCC/js/slideshow.js"></script>
 
 </head>
+
 <body>
-	
-<!-- 	<figure> -->
-<!--    		<span class="trs next"></span> -->
-<!--    		<span class="trs prev"></span> -->
 
-<!--    		<div id="slider"> -->
-<!--       		<a href="#" class="trs" id="imagemSlide1"><img src="../images/Desert.jpg" alt="Legenda da imagem 1" /></a> -->
-<!--       		<a href="#" class="trs" id="imagemSlide2"><img src="../images/Koala.jpg" alt="Legenda da imagem 2" /></a> -->
+	<div class="container">
+	
+		<div class="header clearfix">
+
+			<h3 class="text-muted">TRABALHO DE CONCLUSÃO DE CURSO</h3>
+			<hr>
 			
-<!--    		</div> -->
+		</div>
 
-<!--    		<figcaption></figcaption> -->
-   
-<!-- 	</figure> -->
-	
-	<button id="slideAnteriorHttp" onClick="slideHttp()">SLIDE HTTP</button>
-	
-	<button id="slidePosteriorHttp" onClick="slideWs()">SLIDE WS</button>
-	
+		<div class="jumbotron">
+		
+			<div>
+			
+				<h3 class="display-5">PROTÓTIPO HTTP</h3>
+				
+				<p class="lead">
+					<a onClick="slideHttp()"><img class="logoHome" src='images/http.png' alt="Protótipo HTTP" /></a>
+				</p>
+				
+			</div>
+
+			<div>
+				<h3 class="display-5">PROTÓTIPO WEB SOCKET</h3>
+				
+				<p class="lead">
+					<a onClick="slideWs()"><img class="logoHome" src='images/websocket.png' alt="Protótipo WebSocket" /></a>
+				</p>
+				
+			</div>
+
+		</div>
+
+	</div>
+
 </body>
 </html>

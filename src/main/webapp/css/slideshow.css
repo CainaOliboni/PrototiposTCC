@@ -1,5 +1,4 @@
 * {margin: 0; padding: 0;}
-body {background: #000}
 a,img {border: none;}
 .trs {-webkit-transition:all ease-out 0.5s;
     -moz-transition:all ease-out 0.5s;
@@ -48,4 +47,16 @@ figure:hover span {opacity: 0.76;filter:alpha(opacity=76);}
     margin: 50px auto;
 }
 
+.logoHome{
+	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
 figcaption {padding-left: 20px;color: #fff; font-family: "Kaushan Script","Lato","arial"; font-size: 22px; background: rgba(1, 144, 238, 0.76); width: 100%; position: absolute; bottom: 0; left: 0; line-height: 55px; height: 55px; z-index: 5}
+
+body {
+	width: 736px;
+}
