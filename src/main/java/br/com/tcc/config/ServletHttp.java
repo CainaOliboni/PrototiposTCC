@@ -37,17 +37,7 @@ public class ServletHttp extends HttpServlet {
 		pw.println("<link href='/PrototiposTCC/css/slideshow.css' rel='stylesheet' type='text/css' />");
 
 		pw.println("<script type='text/javascript' src='/PrototiposTCC/js/slideshow.js'></script>");
-		pw.println("<script>");
-
-		pw.println("function slidePosteriorHttp() { ");
-		pw.println("document.location.href = '/PrototiposTCC/prototipoHttp?SlidePosterior=' + 1;");
-		pw.println("}");
-
-		pw.println("function slideAnteriorHttp() { ");
-		pw.println("document.location.href = '/PrototiposTCC/prototipoHttp?SlideAnterior=' + 1;");
-		pw.println("}");
-
-		pw.println("</script>");
+		
 		pw.println("</head>");
 		pw.println("<body>");
 		pw.println("<figure>");
@@ -63,7 +53,7 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide += 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 //					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
@@ -74,7 +64,7 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide += 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
 //					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
@@ -85,7 +75,7 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide += 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 				}
@@ -100,7 +90,7 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide -= 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide + "/>");
+					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 //					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
@@ -111,28 +101,36 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide -= 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg' alt='Legenda da imagem '" + numeroSlide +"/>");
+					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 				}
 				
 			}
+			
+			pw.println("<div id='slider'>");
+			
+			pw.println("</div>");
+			
+			pw.println("<figcaption>Slide número:  "+ numeroSlide + "</figcaption>");
 
 		} else {
 
 			numeroSlide = 0;
 			
-			pw.println("<img src='images/Koala.jpg' alt='Legenda da imagem '" + numeroSlide +"/>");
+			pw.println("<img src='images/Koala.jpg'/>");
 			pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 //			pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
+			
+			
+			pw.println("<div id='slider'>");
+			
+			pw.println("</div>");
+			
+			pw.println("<figcaption></figcaption>");
 
 		}
-		
-		pw.println("<div id='slider'>");
-		
-		pw.println("</div>");
-		
-		pw.println("<figcaption></figcaption>");
+
 		
 		pw.println("</figure>");
 		pw.println("</body>");

@@ -21,42 +21,44 @@ function setaImagem(){
 
         },
 
-        proximo: function(){
-            clearInterval(intervalo);
-            elemento = document.querySelector(".ativo");
-
-            if(elemento.nextElementSibling){
-                elemento.nextElementSibling.classList.add("ativo");
-                settings.legenda(elemento.nextElementSibling);
-                elemento.classList.remove("ativo");
-            }else{
-                elemento.classList.remove("ativo");
-                settings.primeiraImg();
-            }
-            intervalo = setInterval(settings.slide,4000);
-        },
-
-        anterior: function(){
-            clearInterval(intervalo);
-            elemento = document.querySelector(".ativo");
-
-            if(elemento.previousElementSibling){
-                elemento.previousElementSibling.classList.add("ativo");
-                settings.legenda(elemento.previousElementSibling);
-                elemento.classList.remove("ativo");
-            }else{
-                elemento.classList.remove("ativo");                     
-                elemento = document.querySelector("a:last-child");
-                elemento.classList.add("ativo");
-                this.legenda(elemento);
-            }
-            intervalo = setInterval(settings.slide,4000);
-        },
-
-        legenda: function(obj){
-            var legenda = obj.querySelector("img").getAttribute("alt");
-            document.querySelector("figcaption").innerHTML = legenda;
-        }
+//        proximo: function(){
+//        	
+//            clearInterval(intervalo);
+//            elemento = document.querySelector(".ativo");
+//
+//            if(elemento.nextElementSibling){
+//                elemento.nextElementSibling.classList.add("ativo");
+//                settings.legenda(elemento.nextElementSibling);
+//                elemento.classList.remove("ativo");
+//            }else{
+//                elemento.classList.remove("ativo");
+//                settings.primeiraImg();
+//            }
+//            intervalo = setInterval(settings.slide,4000);
+//        },
+//
+//        anterior: function(){
+//        	
+//            clearInterval(intervalo);
+//            elemento = document.querySelector(".ativo");
+//
+//            if(elemento.previousElementSibling){
+//                elemento.previousElementSibling.classList.add("ativo");
+//                settings.legenda(elemento.previousElementSibling);
+//                elemento.classList.remove("ativo");
+//            }else{
+//                elemento.classList.remove("ativo");                     
+//                elemento = document.querySelector("a:last-child");
+//                elemento.classList.add("ativo");
+//                this.legenda(elemento);
+//            }
+//            intervalo = setInterval(settings.slide,4000);
+//        },
+//
+//        legenda: function(obj){
+//            var legenda = obj.querySelector("img").getAttribute("alt");
+//            document.querySelector("figcaption").innerHTML = legenda;
+//        }
 
     }
 
@@ -75,6 +77,12 @@ function setaImagem(){
 function slidePosteriorHttp() {
 	
 	document.location.href = "/PrototiposTCC/prototipoHttp?SlidePosterior=" + 1;
+
+}
+
+function slideAnteriorHttp() {
+
+	document.location.href = '/PrototiposTCC/prototipoHttp?SlideAnterior=' + 1;
 
 }
 
