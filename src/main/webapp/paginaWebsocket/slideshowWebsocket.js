@@ -11,13 +11,13 @@ function abrirConexao() {
 		ws.onmessage = function(evt) { onMessage(evt) };
 		ws.onerror = function(evt) { onError(evt) };
 	    
-	    console.log("WebSocket é suportado nesse browser");
+	    console.log("WebSocket Ã© suportado nesse browser");
 		
 	} else {
-		console.log("WebSocket não é suportado nesse browser");
+		console.log("WebSocket nÃ£o Ã© suportado nesse browser");
 	}
 	
-	console.log("ABRINDO CONEXÃO COM O SERVIDOR");
+	console.log("ABRINDO CONEXÃƒO COM O SERVIDOR");
 	
 };
 
@@ -39,7 +39,7 @@ function onClose() {
 	
 	ws.close();
 	
-	console.log("CONEXÃO FECHADA COM SUCESSO"); 
+	console.log("CONEXÃƒO FECHADA COM SUCESSO"); 
 	
 };
 
@@ -53,7 +53,7 @@ function setaImagem(){
 	
     var settings = {
         primeiraImg: function(){
-            elemento = document.getElementById("imagemSlide1");
+            elemento = document.getElementById("slideInicial");
             elemento.classList.add("ativo");
             this.legenda(elemento);
         },
@@ -76,14 +76,12 @@ function setaImagem(){
             
         	//clearInterval(intervalo);
             elemento = document.querySelector(".ativo");
-            var idElemento = elemento.id;
 
             if(elemento.nextElementSibling){
             	
-            	enviarMensagem(idElemento + ",prox");
-            	var idProximoElemento = valorRetorno;
+            	enviarMensagem(elemento.nextElementSibling.id + ",prox");
             	
-                document.getElementById(idProximoElemento).classList.add("ativo");
+                document.getElementById(elemento.nextElementSibling.id).classList.add("ativo");
                 settings.legenda(elemento.nextElementSibling);
                 elemento.classList.remove("ativo");
             }else{
@@ -96,14 +94,12 @@ function setaImagem(){
         anterior: function(){
             //clearInterval(intervalo);
             elemento = document.querySelector(".ativo");
-            var idElemento = elemento.id;
             
             if(elemento.previousElementSibling){
             	
-            	enviarMensagem(idElemento + ",ant");
-            	var idAnteriorElemento = valorRetorno;
+            	enviarMensagem(elemento.previousElementSibling.id + ",ant");
             	
-            	document.getElementById(idAnteriorElemento).classList.add("ativo");
+            	document.getElementById(elemento.previousElementSibling.id).classList.add("ativo");
                 settings.legenda(elemento.previousElementSibling);
                 elemento.classList.remove("ativo");
             }else{
@@ -128,7 +124,7 @@ function setaImagem(){
     //chama a legenda
     settings.legenda(elemento);
 
-    //chama o slide à um determinado tempo
+    //chama o slide Ã  um determinado tempo
     //var intervalo = setInterval(settings.slide,4000);
     document.querySelector(".next").addEventListener("click",settings.proximo,false);
     document.querySelector(".prev").addEventListener("click",settings.anterior,false);
