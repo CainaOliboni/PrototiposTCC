@@ -53,18 +53,18 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide += 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
+					pw.println("<img src='images/slide"+numeroSlide+".png'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 //					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
 				} 
 				
 				//Se o slide que fez a requisição for penúltimo slide, não deve aparecer o botão 'próximo' no momento que mostrar o último slide
-				else if(numeroSlide >= 2){
+				else if(numeroSlide >= 6){
 					
 					numeroSlide += 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
+					pw.println("<img src='images/slide"+numeroSlide+".png'/>");
 //					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
@@ -75,7 +75,7 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide += 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
+					pw.println("<img src='images/slide"+numeroSlide+".png'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 				}
@@ -90,7 +90,7 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide -= 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
+					pw.println("<img src='images/slide"+numeroSlide+".png'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 //					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
@@ -101,7 +101,7 @@ public class ServletHttp extends HttpServlet {
 					
 					numeroSlide -= 1;
 					
-					pw.println("<img src='images/img"+numeroSlide+".jpg'/>");
+					pw.println("<img src='images/slide"+numeroSlide+".png'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 				}
@@ -118,7 +118,7 @@ public class ServletHttp extends HttpServlet {
 
 			numeroSlide = 0;
 			
-			pw.println("<img src='images/Koala.jpg'/>");
+			pw.println("<img src='images/slideInicial.png'/>");
 			pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 //			pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 			
@@ -127,7 +127,7 @@ public class ServletHttp extends HttpServlet {
 			
 			pw.println("</div>");
 			
-			pw.println("<figcaption></figcaption>");
+//			pw.println("<figcaption></figcaption>");
 
 		}
 

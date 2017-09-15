@@ -40,11 +40,10 @@ span {background: #0190EE; cursor: pointer; opacity: 0;filter:alpha(opacity=0); 
 
 figure:hover span {opacity: 0.76;filter:alpha(opacity=76);}
     figure {
-    max-width: 937px;
-    height: 354px;
+    max-width: 1350px;
+    height: 600px;
     position: relative;
     overflow: hidden;
-    margin: 50px auto;
 }
 
 .logoHome{
@@ -56,7 +55,3 @@ figure:hover span {opacity: 0.76;filter:alpha(opacity=76);}
 }
 
 figcaption {padding-left: 20px;color: #fff; font-family: "Kaushan Script","Lato","arial"; font-size: 22px; background: rgba(1, 144, 238, 0.76); width: 100%; position: absolute; bottom: 0; left: 0; line-height: 55px; height: 55px; z-index: 5}
-
-body {
-	width: 736px;
-}
