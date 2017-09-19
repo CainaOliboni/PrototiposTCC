@@ -11,18 +11,42 @@ function abrirConexao() {
 		ws.onmessage = function(evt) { onMessage(evt) };
 		ws.onerror = function(evt) { onError(evt) };
 	    
-	    console.log("WebSocket Ã© suportado nesse browser");
+	    console.log("WEB SOCKET É SUPORTADO NESSE BROWSER");
 		
 	} else {
-		console.log("WebSocket nÃ£o Ã© suportado nesse browser");
+		console.log("WEB SOCKET NÃO É SUPORTADO NESSE BROWSER");
 	}
 	
-	console.log("ABRINDO CONEXÃƒO COM O SERVIDOR");
+	document.getElementById("btnConectar").classList.add("hidden");
+	
+	document.getElementById("btnDesconectar").classList.remove("hidden");
+	
+	console.log("ABRINDO CONEXÃO COM O SERVIDOR");
 	
 };
 
 
 function onOpen(){
+
+//	if(document.getElementById("slideInicial") || document.getElementById("imagemSlide1")){
+//		
+//		var habilitarProximo = document.getElementById("botaoProximo");
+//		habilitarProximo.classList.remove("hidden");
+//		
+//	} else if(document.getElementById("imagemSlide7")){
+//
+//		var habilitarAnterior = document.getElementById("botaoAnterior");
+//		habilitarAnterior.classList.remove("hidden");
+//		
+//	} else {
+//		
+//		var habilitarProximo = document.getElementById("botaoProximo");
+//		habilitarProximo.classList.remove("hidden");
+//		
+//		var habilitarAnterior = document.getElementById("botaoAnterior");
+//		habilitarAnterior.classList.remove("hidden");
+//		
+//	}
 	
 	console.log("HANDSHAKE FEITO COM SUCESSO")
 };
@@ -31,15 +55,23 @@ function onMessage (evt) {
 	
 	valorRetorno = evt.data;
 	
-	console.log(evt);
+//	console.log(evt);
 
 };
 
 function onClose() { 
 	
 	ws.close();
+
+	document.location.href = "/PrototiposTCC/";
 	
-	console.log("CONEXÃƒO FECHADA COM SUCESSO"); 
+//	var desabilitarProximo = document.getElementById("botaoProximo");
+//	desabilitarProximo.classList.add("hidden");
+//    
+//	var desabilitarAnterior = document.getElementById("botaoAnterior");
+//	desabilitarAnterior.classList.add("hidden");
+	
+	console.log("CONEXÃO FECHADA COM SUCESSO"); 
 	
 };
 
@@ -54,8 +86,16 @@ function setaImagem(){
     var settings = {
         primeiraImg: function(){
             elemento = document.getElementById("slideInicial");
+            
+        	var removerLegenda = document.getElementById("legendaSlide");
+            	
+        	removerLegenda.classList.add("hidden");
             elemento.classList.add("ativo");
-            this.legenda(elemento);
+            
+        	var desabilitarBotao = document.getElementById("botaoAnterior");
+        	desabilitarBotao.classList.add("hidden");
+            
+//            this.legenda(elemento);
         },
 
         slide: function(){
@@ -77,6 +117,32 @@ function setaImagem(){
         	//clearInterval(intervalo);
             elemento = document.querySelector(".ativo");
 
+            if(elemento.id == "slideInicial"){
+            	
+            	var desabilitarBotao = document.getElementById("botaoAnterior");
+            	
+            	desabilitarBotao.classList.add("hidden");
+            
+            } else {
+            	
+            	var desabilitarBotao = document.getElementById("botaoAnterior");
+            	
+            	desabilitarBotao.classList.remove("hidden");
+            }
+            
+            if(elemento.id == "imagemSlide7"){
+            	
+            	var desabilitarBotao = document.getElementById("botaoProximo");
+            	
+            	desabilitarBotao.classList.add("hidden");
+            
+            } else{
+            	
+            	var desabilitarBotao = document.getElementById("botaoProximo");
+            	
+            	desabilitarBotao.classList.remove("hidden");
+            }
+            
             if(elemento.nextElementSibling){
             	
             	enviarMensagem(elemento.nextElementSibling.id + ",prox");
@@ -84,7 +150,9 @@ function setaImagem(){
                 document.getElementById(elemento.nextElementSibling.id).classList.add("ativo");
                 settings.legenda(elemento.nextElementSibling);
                 elemento.classList.remove("ativo");
+            
             }else{
+            	
                 elemento.classList.remove("ativo");
                 settings.primeiraImg();
             }
@@ -94,6 +162,28 @@ function setaImagem(){
         anterior: function(){
             //clearInterval(intervalo);
             elemento = document.querySelector(".ativo");
+            
+            if(elemento.id == "imagemSlide2" || elemento.id == "imagemSlide1"){
+            	
+            	var desabilitarBotao = document.getElementById("botaoAnterior");
+            	
+            	desabilitarBotao.classList.add("hidden");
+            
+            } else if(elemento.id == "imagemSlide8"){
+            
+        		var desabilitarBotao = document.getElementById("botaoProximo");
+            	
+            	desabilitarBotao.classList.remove("hidden");
+            	
+            }
+            
+            else {
+            	
+            	var desabilitarBotao = document.getElementById("botaoAnterior");
+            	
+            	desabilitarBotao.classList.remove("hidden");
+            
+            }
             
             if(elemento.previousElementSibling){
             	
@@ -117,7 +207,7 @@ function setaImagem(){
         }
 
     }
-
+    
     //chama o slide
     settings.primeiraImg();
 
@@ -126,8 +216,10 @@ function setaImagem(){
 
     //chama o slide Ã  um determinado tempo
     //var intervalo = setInterval(settings.slide,4000);
-    document.querySelector(".next").addEventListener("click",settings.proximo,false);
+    
+	document.querySelector(".next").addEventListener("click",settings.proximo,false);
     document.querySelector(".prev").addEventListener("click",settings.anterior,false);
+    	
 }
 
 window.addEventListener("load",setaImagem,false);

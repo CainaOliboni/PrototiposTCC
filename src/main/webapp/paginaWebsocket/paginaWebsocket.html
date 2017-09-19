@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/PrototiposTCC/css/slideshow.css" rel="stylesheet" type="text/css" />
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -11,33 +11,35 @@
 	
 	<button id="btnConectar" onclick="abrirConexao()">CONECTAR</button>
 	
-	<button id="btnDesconectar" onclick="onClose()">DESCONECTAR</button>
+	<button id="btnDesconectar" onclick="onClose()" class="hidden">DESCONECTAR</button>
 	
 	<figure>
-   		<span class="trs next"></span>
-   		<span class="trs prev"></span>
+   		<span class="trs next" id="botaoProximo"></span>
+   		<span class="trs prev" id="botaoAnterior"></span>
 
    		<div id="slider">
    		
    			<a href="#" class="trs" id="slideInicial"><img src="../images/slideInicial.png"/></a>
       		
-      		<a href="#" class="trs" id="imagemSlide1"><img src="../images/slide1.png" alt="Slide número: 1" /></a>
+      		<a href="#" class="trs" id="imagemSlide1"><img src="../images/slide1.png" alt="Slide nÃºmero: 1" /></a>
       		
-      		<a href="#" class="trs" id="imagemSlide2"><img src="../images/slide2.png" alt="Slide número: 2" /></a>
+      		<a href="#" class="trs" id="imagemSlide2"><img src="../images/slide2.png" alt="Slide nÃºmero: 2" /></a>
       		
-      		<a href="#" class="trs" id="imagemSlide3"><img src="../images/slide3.png" alt="Slide número: 3" /></a>
+      		<a href="#" class="trs" id="imagemSlide3"><img src="../images/slide3.png" alt="Slide nÃºmero: 3" /></a>
       		
-      		<a href="#" class="trs" id="imagemSlide4"><img src="../images/slide4.png" alt="Slide número: 4" /></a>
+      		<a href="#" class="trs" id="imagemSlide4"><img src="../images/slide4.png" alt="Slide nÃºmero: 4" /></a>
       		
-      		<a href="#" class="trs" id="imagemSlide5"><img src="../images/slide5.png" alt="Slide número: 5" /></a>
+      		<a href="#" class="trs" id="imagemSlide5"><img src="../images/slide5.png" alt="Slide nÃºmero: 5" /></a>
       		
-      		<a href="#" class="trs" id="imagemSlide6"><img src="../images/slide6.png" alt="Slide número: 6" /></a>
+      		<a href="#" class="trs" id="imagemSlide6"><img src="../images/slide6.png" alt="Slide nÃºmero: 6" /></a>
       		
-      		<a href="#" class="trs" id="imagemSlide7"><img src="../images/slide7.png" alt="Slide número: 7" /></a>
+      		<a href="#" class="trs" id="imagemSlide7"><img src="../images/slide7.png" alt="Slide nÃºmero: 7" /></a>
+      		
+      		<a href="#" class="trs" id="imagemSlide8"><img src="../images/slide8.png" alt="Slide nÃºmero: 8" /></a>
 			
    		</div>
 
-   		<figcaption></figcaption>
+   		<figcaption id="legendaSlide" class="hidden"></figcaption>
    
 	</figure>
 

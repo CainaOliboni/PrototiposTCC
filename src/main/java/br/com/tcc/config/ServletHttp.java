@@ -15,14 +15,14 @@ public class ServletHttp extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		
-//		System.out.println("ABRIU A CONEXÃO");
+		System.out.println("ABRIU A CONEXÃO");
 
 	}
 
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//		System.out.println("NOVA REQUISICÃO");
+		System.out.println("NOVA REQUISICÃO");
 
 		String slidePosterior = (String) req.getParameter("SlidePosterior");
 
@@ -112,7 +112,7 @@ public class ServletHttp extends HttpServlet {
 			
 			pw.println("</div>");
 			
-			pw.println("<figcaption>Slide número:  "+ numeroSlide + "</figcaption>");
+//			pw.println("<figcaption>Slide número:  "+ numeroSlide + "</figcaption>");
 
 		} else {
 
