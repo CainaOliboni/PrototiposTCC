@@ -23,7 +23,7 @@ public class WebsocketEndpoint implements Serializable{
 		
 		System.out.println("ID SESSÃO " + session.getId());
 		
-		System.out.println("ABRIU A SESSÃO COM O SERVER SIDE");
+		System.out.println("ABRIU A CONEXÃO COM O SERVIDOR");
 	
 	}
 	@OnMessage 
@@ -47,7 +47,6 @@ public class WebsocketEndpoint implements Serializable{
 			
 			numeroSlideAbertura = numeroSlide - 1;
 		}
-		
 		
 		return "imagemSlide" + numeroSlideAbertura;
 		

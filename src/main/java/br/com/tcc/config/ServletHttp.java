@@ -15,7 +15,7 @@ public class ServletHttp extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		
-		System.out.println("ABRIU A CONEXÃO");
+		System.out.println("ABRIU A CONEXÃO COM O SERVIDOR");
 
 	}
 
@@ -55,7 +55,6 @@ public class ServletHttp extends HttpServlet {
 					
 					pw.println("<img src='images/slide"+numeroSlide+".png'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
-//					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
 				} 
 				
@@ -65,7 +64,6 @@ public class ServletHttp extends HttpServlet {
 					numeroSlide += 1;
 					
 					pw.println("<img src='images/slide"+numeroSlide+".png'/>");
-//					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
 					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
 				} 
@@ -92,7 +90,6 @@ public class ServletHttp extends HttpServlet {
 					
 					pw.println("<img src='images/slide"+numeroSlide+".png'/>");
 					pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
-//					pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
 					
 				} 
 				
@@ -111,8 +108,6 @@ public class ServletHttp extends HttpServlet {
 			pw.println("<div id='slider'>");
 			
 			pw.println("</div>");
-			
-//			pw.println("<figcaption>Slide número:  "+ numeroSlide + "</figcaption>");
 
 		} else {
 
@@ -120,18 +115,13 @@ public class ServletHttp extends HttpServlet {
 			
 			pw.println("<img src='images/slideInicial.png'/>");
 			pw.println("<span class='trs next' onClick='slidePosteriorHttp()'></span>");
-//			pw.println("<span class='trs prev' onClick='slideAnteriorHttp()'></span>");
-			
 			
 			pw.println("<div id='slider'>");
 			
 			pw.println("</div>");
-			
-//			pw.println("<figcaption></figcaption>");
 
 		}
 
-		
 		pw.println("</figure>");
 		pw.println("</body>");
 		pw.println("</html>");

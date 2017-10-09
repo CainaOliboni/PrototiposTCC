@@ -11,52 +11,30 @@ function abrirConexao() {
 		ws.onmessage = function(evt) { onMessage(evt) };
 		ws.onerror = function(evt) { onError(evt) };
 	    
-	    console.log("WEB SOCKET É SUPORTADO NESSE BROWSER");
+	    console.log("O PROTOCOLO WEBSOCKET É SUPORTADO NESSE BROWSER");
 		
 	} else {
-		console.log("WEB SOCKET NÃO É SUPORTADO NESSE BROWSER");
+
+		console.log("O PROTOCOLO WEBSOCKET NÃO É SUPORTADO NESSE BROWSER");
 	}
 	
 	document.getElementById("btnConectar").classList.add("hidden");
 	
 	document.getElementById("btnDesconectar").classList.remove("hidden");
 	
-	console.log("ABRINDO CONEXÃO COM O SERVIDOR");
-	
 };
 
 
 function onOpen(){
 
-//	if(document.getElementById("slideInicial") || document.getElementById("imagemSlide1")){
-//		
-//		var habilitarProximo = document.getElementById("botaoProximo");
-//		habilitarProximo.classList.remove("hidden");
-//		
-//	} else if(document.getElementById("imagemSlide7")){
-//
-//		var habilitarAnterior = document.getElementById("botaoAnterior");
-//		habilitarAnterior.classList.remove("hidden");
-//		
-//	} else {
-//		
-//		var habilitarProximo = document.getElementById("botaoProximo");
-//		habilitarProximo.classList.remove("hidden");
-//		
-//		var habilitarAnterior = document.getElementById("botaoAnterior");
-//		habilitarAnterior.classList.remove("hidden");
-//		
-//	}
+	console.log("HANDSHAKE FEITO COM SUCESSO");
 	
-	console.log("HANDSHAKE FEITO COM SUCESSO")
 };
 
 function onMessage (evt) {
 	
 	valorRetorno = evt.data;
 	
-//	console.log(evt);
-
 };
 
 function onClose() { 
@@ -64,13 +42,7 @@ function onClose() {
 	ws.close();
 
 	document.location.href = "/PrototiposTCC/";
-	
-//	var desabilitarProximo = document.getElementById("botaoProximo");
-//	desabilitarProximo.classList.add("hidden");
-//    
-//	var desabilitarAnterior = document.getElementById("botaoAnterior");
-//	desabilitarAnterior.classList.add("hidden");
-	
+
 	console.log("CONEXÃO FECHADA COM SUCESSO"); 
 	
 };
@@ -87,15 +59,11 @@ function setaImagem(){
         primeiraImg: function(){
             elemento = document.getElementById("slideInicial");
             
-        	var removerLegenda = document.getElementById("legendaSlide");
-            	
-        	removerLegenda.classList.add("hidden");
             elemento.classList.add("ativo");
             
         	var desabilitarBotao = document.getElementById("botaoAnterior");
         	desabilitarBotao.classList.add("hidden");
             
-//            this.legenda(elemento);
         },
 
         slide: function(){
@@ -103,7 +71,6 @@ function setaImagem(){
 
             if(elemento.nextElementSibling){
                 elemento.nextElementSibling.classList.add("ativo");
-                settings.legenda(elemento.nextElementSibling);
                 elemento.classList.remove("ativo");
             }else{
                 elemento.classList.remove("ativo");
@@ -114,7 +81,6 @@ function setaImagem(){
 
         proximo: function(){
             
-        	//clearInterval(intervalo);
             elemento = document.querySelector(".ativo");
 
             if(elemento.id == "slideInicial"){
@@ -148,7 +114,6 @@ function setaImagem(){
             	enviarMensagem(elemento.nextElementSibling.id + ",prox");
             	
                 document.getElementById(elemento.nextElementSibling.id).classList.add("ativo");
-                settings.legenda(elemento.nextElementSibling);
                 elemento.classList.remove("ativo");
             
             }else{
@@ -156,11 +121,9 @@ function setaImagem(){
                 elemento.classList.remove("ativo");
                 settings.primeiraImg();
             }
-            //intervalo = setInterval(settings.slide,4000);
         },
 
         anterior: function(){
-            //clearInterval(intervalo);
             elemento = document.querySelector(".ativo");
             
             if(elemento.id == "imagemSlide2" || elemento.id == "imagemSlide1"){
@@ -190,34 +153,23 @@ function setaImagem(){
             	enviarMensagem(elemento.previousElementSibling.id + ",ant");
             	
             	document.getElementById(elemento.previousElementSibling.id).classList.add("ativo");
-                settings.legenda(elemento.previousElementSibling);
                 elemento.classList.remove("ativo");
+                
             }else{
+            	
                 elemento.classList.remove("ativo");                     
                 elemento = document.querySelector("a:last-child");
                 elemento.classList.add("ativo");
-                this.legenda(elemento);
+                
             }
-            //intervalo = setInterval(settings.slide,4000);
+            
         },
-
-        legenda: function(obj){
-            var legenda = obj.querySelector("img").getAttribute("alt");
-            document.querySelector("figcaption").innerHTML = legenda;
-        }
 
     }
     
-    //chama o slide
     settings.primeiraImg();
 
-    //chama a legenda
-    settings.legenda(elemento);
-
-    //chama o slide Ã  um determinado tempo
-    //var intervalo = setInterval(settings.slide,4000);
-    
-	document.querySelector(".next").addEventListener("click",settings.proximo,false);
+    document.querySelector(".next").addEventListener("click",settings.proximo,false);
     document.querySelector(".prev").addEventListener("click",settings.anterior,false);
     	
 }
