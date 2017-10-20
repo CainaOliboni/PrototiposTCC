@@ -37,9 +37,12 @@ function onMessage (evt) {
 	
 };
 
-function onClose() { 
+function fecharConexao(){
 	
 	ws.close();
+};
+
+function onClose() { 
 
 	document.location.href = "/PrototiposTCC/";
 

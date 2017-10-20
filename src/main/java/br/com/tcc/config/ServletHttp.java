@@ -15,8 +15,6 @@ public class ServletHttp extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		
-		System.out.println("ABRIU A CONEXÃO COM O SERVIDOR");
-
 	}
 
 	@Override
@@ -32,6 +30,7 @@ public class ServletHttp extends HttpServlet {
 
 		pw.println("<html>");
 		pw.println("<head>");
+		pw.println("<meta charset='UTF-8'>");
 		pw.println("<title>Primeira Servlet</title>");
 		
 		pw.println("<link href='/PrototiposTCC/css/slideshow.css' rel='stylesheet' type='text/css' />");
