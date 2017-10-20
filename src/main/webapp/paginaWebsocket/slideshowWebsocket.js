@@ -99,7 +99,7 @@ function setaImagem(){
             	desabilitarBotao.classList.remove("hidden");
             }
             
-            if(elemento.id == "imagemSlide7"){
+            if(elemento.id == "imagemSlide25"){
             	
             	var desabilitarBotao = document.getElementById("botaoProximo");
             	
@@ -135,7 +135,7 @@ function setaImagem(){
             	
             	desabilitarBotao.classList.add("hidden");
             
-            } else if(elemento.id == "imagemSlide8"){
+            } else if(elemento.id == "imagemSlide26"){
             
         		var desabilitarBotao = document.getElementById("botaoProximo");
             	

@@ -41,7 +41,7 @@ span {background: #0190EE; cursor: pointer; opacity: 0;filter:alpha(opacity=0); 
 figure:hover span {opacity: 0.76;filter:alpha(opacity=76);}
     figure {
     max-width: 1350px;
-    height: 600px;
+    height: 680px;
     position: relative;
     overflow: hidden;
 }

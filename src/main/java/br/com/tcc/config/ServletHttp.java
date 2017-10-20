@@ -58,7 +58,7 @@ public class ServletHttp extends HttpServlet {
 				} 
 				
 				//Se o slide que fez a requisição for penúltimo slide, não deve aparecer o botão 'próximo' no momento que mostrar o último slide
-				else if(numeroSlide >= 7){
+				else if(numeroSlide >= 25){
 					
 					numeroSlide += 1;
 					
