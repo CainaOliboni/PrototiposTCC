@@ -52,6 +52,8 @@ function onClose() {
 
 function enviarMensagem(idSlideCorrente) {
 	
+	console.log("O slide corrente é: " + idSlideCorrente.split(',')[0]);
+	
 	ws.send(idSlideCorrente);
 	
 };
